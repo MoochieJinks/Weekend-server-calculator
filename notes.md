@@ -1,0 +1,3 @@
+-- CHECKLIST --
+- create folders and files for server/html/client
+- bring in JQ
