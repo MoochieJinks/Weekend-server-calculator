@@ -3,22 +3,18 @@ $(document).ready( onReady );
 // onReady function
 function onReady(){
     // need one for calculateEquation
-    $('#calculateEquationButton').on('click', calculateEquation);
+    $('#calculateEquationButton').on('click', addEquation);
     getEquation();
 }
 
 // global variables
+let ourEquation = {
+    firstNum: $('#firstNumIn').val(),
+    operator: $('#equationTypeIn').val(),
+    secondNum: $('#secondNumIn').val(),
+}
 
 // functions
-function calculateEquation(){
-    console.log ('in calculateEquation'); // received in console
-    let ourEquation = {
-        firstNum: $('#firstNumIn').val(),
-        operator: $('#equationTypeIn').val(),
-        secondNum: $('#secondNumIn').val(),
-    }
-
-} // end calculateEquation
 
 function getEquation(){
     // get numbers from server
@@ -33,9 +29,24 @@ function getEquation(){
         // empty output elements
         const numeroEl = $('#calculationOut');
         numeroEl.empty();
-        for (let i=0; i < response.length; i++){
-            // append elements to DOM
-            numeroEl.append(`<li> ${response.firstNum} ${response.operator} ${response.secondNum} </li>`);
-        } // end for loop
+        // append elements to DOM
+        for (const calculation of response){
+            numeroEl.append(`<li> ${calculation.firstNum} ${calculation.operator} ${calculation.secondNum} = ${calculation.result}</li>`);
+        console.log('GET request successful!');
+        }
     }) // end AJAX GET
 } // end getEquation
+
+function addEquation(){
+    $.ajax({
+        method: 'POST',
+        url: '/numbers',
+        data: {
+            firstNum: $('#firstNumIn').val(),
+            operator: $('#equationTypeIn').val(),
+            secondNum: $('#secondNumIn').val(),
+        }
+    }).then( function (response){
+        getEquation();
+    })
+}

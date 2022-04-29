@@ -40,3 +40,7 @@
         - app.use( '/numbers', numbers);
 
 - PUSH TO GIT
+
+- Now comes the harderish part, how do I do calculations on the server side?
+    - I'd definitely want a few if statements for each operator
+- Made if statements for operator in the client FOR NOW!!!!!!
