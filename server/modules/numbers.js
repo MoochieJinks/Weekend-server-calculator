@@ -17,7 +17,7 @@ router.get( '/', (req, res) =>{
 router.post( '/', (req, res)=>{
     let result = 0;
     if (req.body.operator == '+'){
-        result = req.body.firstNum + req.body.secondNum;
+        result = +req.body.firstNum + +req.body.secondNum;
     } else if (req.body.operator == '-'){
         result = req.body.firstNum - req.body.secondNum;
     } else if (req.body.operator == '*'){

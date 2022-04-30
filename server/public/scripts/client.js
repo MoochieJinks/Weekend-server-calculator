@@ -5,6 +5,7 @@ function onReady(){
     // need one for calculateEquation
     $('#calculateEquationButton').on('click', addEquation);
     getEquation();
+    $('#clearAllButton').on('click', clearAll);
 }
 
 // global variables
@@ -49,4 +50,9 @@ function addEquation(){
     }).then( function (response){
         getEquation();
     })
+}
+
+function clearAll(){
+    let clearElement = $('#clearAllButton');
+    clearElement.empty();
 }

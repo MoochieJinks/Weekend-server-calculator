@@ -44,3 +44,8 @@
 - Now comes the harderish part, how do I do calculations on the server side?
     - I'd definitely want a few if statements for each operator
 - Made if statements for operator in the client FOR NOW!!!!!!
+
+
+- Now I need a button to clear everything
+- Create button element on HTML 
+- Function for button that will empty everything.
