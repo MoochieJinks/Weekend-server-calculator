@@ -53,6 +53,6 @@ function addEquation(){
 }
 
 function clearAll(){
-    let clearElement = $('#clearAllButton');
+    const clearElement = $('#calculationOut');
     clearElement.empty();
 }
