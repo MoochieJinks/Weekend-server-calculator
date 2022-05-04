@@ -8,7 +8,7 @@ app.use( express.static ('./server/public') );
 app.use( bodyParser.urlencoded({extended: true} ) );
 app.use( '/numbers', numbers);
 // global
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 // spinning up the server
 app.listen (port, () => {
     console.log ('server up on port: ', port);
